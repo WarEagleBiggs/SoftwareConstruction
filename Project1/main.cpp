@@ -12,7 +12,7 @@ int main() {
     cout << "*  Enter Loan Amount  *" << endl;
     cout << "***********************" << endl;
     cin >> loanAmount;
-    cout << "*   Confirm loan of " + loanAmount + " *" << endl;
+    cout << "* Confirm loan of " + loanAmount + " *" << endl;
     cout << "*         Y/N         *" << endl;
 
 
