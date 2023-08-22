@@ -11,8 +11,11 @@ int main() {
     int monthlyPayment;
     int interestRate;
 
+    //respond var
+    string response;
+
     //TODO---------------------------------------------------------------
-    //Loan Amount
+    //TODO Loan Amount
     cout << "************************************" << endl;
     cout << "Enter Loan Amount" << endl;
     cout << "************************************" << endl;
@@ -26,8 +29,7 @@ int main() {
     }
 
     //TODO---------------------------------------------------------------
-
-    //Monthly Payment
+    //TODO Monthly Payment
     cout << "************************************" << endl;
     cout << "Enter Monthly Payment Amount" << endl;
     cout << "************************************" << endl;
@@ -41,7 +43,7 @@ int main() {
     }
 
     //TODO---------------------------------------------------------------
-    //Interest Rate
+    //TODO Interest Rate
     cout << "************************************" << endl;
     cout << "Enter Interest Rate (% per year)" << endl;
     cout << "************************************" << endl;
@@ -55,7 +57,25 @@ int main() {
     }
 
     //TODO---------------------------------------------------------------
-    //Verify values
+    //TODO Verify values
+    cout << "************************************" << endl;
+    cout << "Loan Amount: $" + to_string(loanAmount) << endl;
+    cout << "Monthly Payment: $" + to_string(monthlyPayment) << endl;
+    cout << "Interest Rate: " + to_string(interestRate) + "%" << endl;
+    cout << "************************************" << endl;
+    cout << "Is The Above Info Correct (Y/N)" << endl;
+    cin >> response;
+
+    //check if y or n
+    if (response != "y" || response != "Y" || response != "N" || response != "n"){
+        //error
+        
+    }
+
+    //check response for n
+    if (response == "N" || response == "n"){
+        //call change info function
+    }
 
 
 
