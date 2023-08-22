@@ -24,7 +24,7 @@ int main() {
     //check if loanAmount is negative
     if (loanAmount <= 0){
         //error
-        cout << "Please enter a number greater than 0" << endl;
+        cout << "Error: Please enter a number greater than 0" << endl;
         cin >> loanAmount;
     }
 
@@ -38,7 +38,7 @@ int main() {
     //check if monthly payment is negative
     if (monthlyPayment <= 0){
         //error
-        cout << "Please enter a number greater than 0" << endl;
+        cout << "Error: Please enter a number greater than 0" << endl;
         cin >> monthlyPayment;
     }
 
@@ -52,7 +52,7 @@ int main() {
     //check if interest rate is negative
     if (interestRate <= 0){
         //error
-        cout << "Please enter a number greater than 0" << endl;
+        cout << "Error: Please enter a number greater than 0" << endl;
         cin >> interestRate;
     }
 
@@ -69,7 +69,7 @@ int main() {
     //check if y or n
     if (response != "y" || response != "Y" || response != "N" || response != "n"){
         //error
-        
+        cout << "Error: Incorrect Input..." << endl;
     }
 
     //check response for n
