@@ -14,6 +14,10 @@ int monthlyInterestRate;
 
 //respond var
 string response;
+
+//Function Ref for calls
+void VerifyValues();
+
 //TODO*****************************************************************************************************
 //TODO Loan Amount
 void LoanAmount(){
@@ -80,12 +84,16 @@ void ChangeValues(){
     //check which input
     if (response == "1"){
         LoanAmount();
+        VerifyValues();
     } else if (response == "2"){
         MonthlyPayment();
+        VerifyValues();
     } else if (response == "3"){
         InterestRate();
+        VerifyValues();
     } else {
         //error
+        ChangeValues();
     }
 }
 
