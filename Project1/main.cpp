@@ -16,7 +16,12 @@ int monthlyInterestRate;
 string response;
 
 //Function Ref for calls
+void LoanAmount();
+void MonthlyPayment();
+void InterestRate();
+void ChangeValues();
 void VerifyValues();
+void VerifyPayments();
 
 //TODO*****************************************************************************************************
 //TODO Loan Amount
