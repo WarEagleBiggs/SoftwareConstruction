@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/jeffb/OneDrive/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug"
+			"value" : "c:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jeffb/OneDrive/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -715,7 +715,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/jeffb/OneDrive/Documents/GitHub/SoftwareConstruction/Project1"
+			"value" : "C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1335,7 +1335,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jeffb/OneDrive/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug"
+			"value" : "C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug"
 		},
 		{
 			"name" : "SoftwareConstruction_IS_TOP_LEVEL",
@@ -1359,7 +1359,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/jeffb/OneDrive/Documents/GitHub/SoftwareConstruction/Project1"
+			"value" : "C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

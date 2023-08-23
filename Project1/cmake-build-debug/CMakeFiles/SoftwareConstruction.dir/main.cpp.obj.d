@@ -1,5 +1,5 @@
 CMakeFiles/SoftwareConstruction.dir/main.cpp.obj: \
- C:\Users\jeffb\OneDrive\Documents\GitHub\SoftwareConstruction\Project1\main.cpp \
+ C:\Users\jeffb\Documents\GitHub\SoftwareConstruction\Project1\main.cpp \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

@@ -11,6 +11,9 @@ int main() {
     int monthlyPayment;
     int interestRate;
 
+    //background vars
+    int monthlyInterestRate;
+
     //respond var
     string response;
 
@@ -56,6 +59,8 @@ int main() {
         cin >> interestRate;
     }
 
+    monthlyInterestRate = interestRate / 12;
+
     //TODO---------------------------------------------------------------
     //TODO Verify values
     cout << "************************************" << endl;
@@ -77,9 +82,10 @@ int main() {
         //call change info function
     }
 
+    //TODO---------------------------------------------------------------
+    //TODO Verify That Payments are > than interest amount
+    if (monthlyPayment <= (monthlyInterestRate / 100) * loanAmount){
 
+    }
 
-
-
-    return 0;
 }
