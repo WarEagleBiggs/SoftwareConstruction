@@ -1,24 +1,22 @@
 //AUTHOR: Adam Biggs
 //Project 1 - Stereo System Payments
 #include <iostream>
+#include <string.h>
 using namespace std;
 
-//main
-int main() {
+//vars
+int loanAmount;
+int monthlyPayment;
+int interestRate;
 
-    //vars
-    int loanAmount;
-    int monthlyPayment;
-    int interestRate;
+//background vars
+int monthlyInterestRate;
 
-    //background vars
-    int monthlyInterestRate;
-
-    //respond var
-    string response;
-
-    //TODO---------------------------------------------------------------
-    //TODO Loan Amount
+//respond var
+string response;
+//TODO*****************************************************************************************************
+//TODO Loan Amount
+void LoanAmount(){
     cout << "************************************" << endl;
     cout << "Enter Loan Amount" << endl;
     cout << "************************************" << endl;
@@ -30,9 +28,11 @@ int main() {
         cout << "Error: Please enter a number greater than 0" << endl;
         cin >> loanAmount;
     }
+}
 
-    //TODO---------------------------------------------------------------
-    //TODO Monthly Payment
+//TODO---------------------------------------------------------------
+//TODO Monthly Payment
+void MonthlyPayment(){
     cout << "************************************" << endl;
     cout << "Enter Monthly Payment Amount" << endl;
     cout << "************************************" << endl;
@@ -44,9 +44,11 @@ int main() {
         cout << "Error: Please enter a number greater than 0" << endl;
         cin >> monthlyPayment;
     }
+}
 
-    //TODO---------------------------------------------------------------
-    //TODO Interest Rate
+//TODO---------------------------------------------------------------
+//TODO Interest Rate
+void InterestRate(){
     cout << "************************************" << endl;
     cout << "Enter Interest Rate (% per year)" << endl;
     cout << "************************************" << endl;
@@ -61,8 +63,11 @@ int main() {
 
     monthlyInterestRate = interestRate / 12;
 
-    //TODO---------------------------------------------------------------
-    //TODO Verify values
+}
+
+//TODO---------------------------------------------------------------
+//TODO Verify values
+void VerifyValues(){
     cout << "************************************" << endl;
     cout << "Loan Amount: $" + to_string(loanAmount) << endl;
     cout << "Monthly Payment: $" + to_string(monthlyPayment) << endl;
@@ -72,7 +77,7 @@ int main() {
     cin >> response;
 
     //check if y or n
-    if (response != "y" || response != "Y" || response != "N" || response != "n"){
+    if (response != "y"  && response != "Y" && response != "N" && response != "n"){
         //error
         cout << "Error: Incorrect Input..." << endl;
     }
@@ -82,10 +87,34 @@ int main() {
         //call change info function
     }
 
-    //TODO---------------------------------------------------------------
-    //TODO Verify That Payments are > than interest amount
-    if (monthlyPayment <= (monthlyInterestRate / 100) * loanAmount){
-
-    }
 
 }
+
+//TODO---------------------------------------------------------------
+//TODO Verify That Payments are > than interest amount
+void VerifyPayments(){
+    if (monthlyPayment <= (monthlyInterestRate / 100) * loanAmount){
+        //error - redo values
+    }
+}
+
+//TODO*****************************************************************************************************
+
+//main
+int main() {
+
+    LoanAmount();
+    MonthlyPayment();
+    InterestRate();
+    VerifyValues();
+    VerifyPayments();
+
+
+
+
+
+
+
+}
+
+
