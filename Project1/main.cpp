@@ -66,6 +66,19 @@ void InterestRate(){
 }
 
 //TODO---------------------------------------------------------------
+//TODO Change Values
+void ChangeValues(){
+    cout << "************************************" << endl;
+    cout << "Select Which Value To Change" << endl;
+    cout << "(1) Loan Amount: $" + to_string(loanAmount) << endl;
+    cout << "(2) Monthly Payment: $" + to_string(monthlyPayment) << endl;
+    cout << "(3) Interest Rate: " + to_string(interestRate) + "%" << endl;
+    cout << "************************************" << endl;
+    cout << "Enter '1', '2', or '3'" << endl;
+    cin >> response;
+}
+
+//TODO---------------------------------------------------------------
 //TODO Verify values
 void VerifyValues(){
     cout << "************************************" << endl;
@@ -85,6 +98,7 @@ void VerifyValues(){
     //check response for n
     if (response == "N" || response == "n"){
         //call change info function
+        ChangeValues();
     }
 
 
@@ -98,14 +112,20 @@ void VerifyPayments(){
     }
 }
 
+
+
+
 //TODO*****************************************************************************************************
 
 //main
 int main() {
 
+    //get values
     LoanAmount();
     MonthlyPayment();
     InterestRate();
+
+    //verify them
     VerifyValues();
     VerifyPayments();
 
