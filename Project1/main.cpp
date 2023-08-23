@@ -76,6 +76,17 @@ void ChangeValues(){
     cout << "************************************" << endl;
     cout << "Enter '1', '2', or '3'" << endl;
     cin >> response;
+
+    //check which input
+    if (response == "1"){
+        LoanAmount();
+    } else if (response == "2"){
+        MonthlyPayment();
+    } else if (response == "3"){
+        InterestRate();
+    } else {
+        //error
+    }
 }
 
 //TODO---------------------------------------------------------------
@@ -93,6 +104,7 @@ void VerifyValues(){
     if (response != "y"  && response != "Y" && response != "N" && response != "n"){
         //error
         cout << "Error: Incorrect Input..." << endl;
+        VerifyValues();
     }
 
     //check response for n
@@ -109,6 +121,7 @@ void VerifyValues(){
 void VerifyPayments(){
     if (monthlyPayment <= (monthlyInterestRate / 100) * loanAmount){
         //error - redo values
+        ChangeValues();
     }
 }
 
