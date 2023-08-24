@@ -25,6 +25,24 @@ void InterestRate();
 void ChangeValues();
 void VerifyValues();
 void VerifyPayments();
+void Loop();
+
+//TODO*****************************************************************************************************
+//TODO main
+int main() {
+
+    //get values
+    LoanAmount();
+    MonthlyPayment();
+    InterestRate();
+
+    //verify them
+    VerifyValues();
+    VerifyPayments();
+
+    //loop
+    Loop();
+}
 
 //TODO*****************************************************************************************************
 //TODO Loan Amount
@@ -141,28 +159,12 @@ void VerifyPayments(){
     }
 }
 
-
-
-
-//TODO*****************************************************************************************************
-//TODO main
-int main() {
-
-    //get values
-    LoanAmount();
-    MonthlyPayment();
-    InterestRate();
-
-    //verify them
-    VerifyValues();
-    VerifyPayments();
-
-    //loop
-
-
-
-
-
-
+//TODO---------------------------------------------------------------
+//TODO Loop
+void Loop(){
 
 }
+
+
+
+
