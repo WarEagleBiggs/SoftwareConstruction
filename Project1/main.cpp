@@ -169,6 +169,8 @@ void Loop() {
 
     //create header and table
     cout << "**********************************************************" << endl;
+    cout << "Month " <<  " Balance: " << " Payment: " << " Interest: " << " Principal: " << endl;
+
 
     while (loanAmount > 0) {
 
@@ -196,8 +198,7 @@ void Loop() {
         interestPaid += monthlyInterest;
 
         //fill table
-        cout << "Month " << currMonth << " Balance: $" << loanAmount << " Payment: $" << monthlyPayment
-             << " Interest: $" << monthlyInterest << " Principal: $" << principal << endl;
+        cout << " " << currMonth << " $" << loanAmount << " $" << monthlyPayment << " $" << monthlyInterest << " $" << principal << endl;
 
         //add 1 to month
         currMonth++;
