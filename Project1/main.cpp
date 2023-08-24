@@ -1,5 +1,5 @@
-//AUTHOR: Adam Biggs
-//Project 1 - Stereo System Payments
+//TODO AUTHOR: Adam Biggs
+//TODO Project 1 - Stereo System Payments
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -142,8 +142,7 @@ void VerifyPayments(){
 
 
 //TODO*****************************************************************************************************
-
-//main
+//TODO main
 int main() {
 
     //get values
