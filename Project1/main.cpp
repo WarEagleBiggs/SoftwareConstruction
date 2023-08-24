@@ -198,7 +198,8 @@ void Loop() {
         interestPaid += monthlyInterest;
 
         //fill table
-        cout << " " << currMonth << " $" << loanAmount << " $" << monthlyPayment << " $" << monthlyInterest << " $" << principal << endl;
+        //TODO line up with word
+        cout << "   " << currMonth << "   $" << loanAmount << "   $" << monthlyPayment << "   $" << monthlyInterest << "   $" << principal << endl;
 
         //add 1 to month
         currMonth++;
