@@ -5,15 +5,15 @@
 using namespace std;
 
 //vars
-int loanAmount;
-int monthlyPayment;
-int interestRate;
+float loanAmount;
+float monthlyPayment;
+float interestRate;
 
 //background vars
-int monthlyInterestRate;
-int currBalance;
-int currMonth;
-int interestPaid;
+float monthlyInterestRate;
+float currBalance;
+float currMonth;
+float interestPaid;
 
 //respond var
 string response;
@@ -162,9 +162,7 @@ void VerifyPayments(){
 //TODO---------------------------------------------------------------
 //TODO Loop
 void Loop(){
-
+    while(loanAmount > 0){
+        
+    }
 }
-
-
-
-
