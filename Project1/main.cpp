@@ -85,7 +85,7 @@ void InterestRate(){
     cin >> interestRate;
 
     //check if interest rate is negative
-    if (interestRate <= -1){
+    if (interestRate < 0){
         //error
         cout << "Error: Please enter a positive number" << endl;
         cin >> interestRate;
