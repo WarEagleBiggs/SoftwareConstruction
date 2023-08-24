@@ -161,8 +161,49 @@ void VerifyPayments(){
 
 //TODO---------------------------------------------------------------
 //TODO Loop
-void Loop(){
-    while(loanAmount > 0){
-        
+void Loop() {
+    //init
+    currMonth = 0;
+    interestPaid = 0;
+    monthlyInterestRate /= 100;
+
+    //create header and table
+    cout << "**********************************************************" << endl;
+
+    while (loanAmount > 0) {
+
+        //check
+        while (monthlyPayment <= loanAmount * monthlyInterestRate) {
+            cout << "Error: Monthly payment must be greater than monthly interest." << endl;
+            ChangeValues();
+            VerifyPayments();
+        }
+
+        //find out monthly interest
+        float monthlyInterest = loanAmount * monthlyInterestRate;
+        float principal = monthlyPayment - monthlyInterest;
+
+        //modify principal
+        if (principal > loanAmount) {
+            principal = loanAmount;
+            monthlyPayment = monthlyInterest + principal;
+        }
+
+        //subtract
+        loanAmount -= principal;
+
+        //total interest
+        interestPaid += monthlyInterest;
+
+        //fill table
+        cout << "Month " << currMonth << " Balance: $" << loanAmount << " Payment: $" << monthlyPayment
+             << " Interest: $" << monthlyInterest << " Principal: $" << principal << endl;
+
+        //add 1 to month
+        currMonth++;
     }
+
+    cout << "**********************************************************" << endl;
+    cout << "It takes " << currMonth << " months to pay off the loan." << endl;
+    cout << "Total interest paid is: $" << interestPaid << endl;
 }
