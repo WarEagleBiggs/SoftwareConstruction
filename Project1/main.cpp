@@ -85,9 +85,9 @@ void InterestRate(){
     cin >> interestRate;
 
     //check if interest rate is negative
-    if (interestRate <= 0){
+    if (interestRate <= -1){
         //error
-        cout << "Error: Please enter a number greater than 0" << endl;
+        cout << "Error: Please enter a positive number" << endl;
         cin >> interestRate;
     }
 
@@ -163,13 +163,15 @@ void VerifyPayments(){
 //TODO Loop
 void Loop() {
     //init
-    currMonth = 0;
+    currMonth =0;
     interestPaid = 0;
     monthlyInterestRate /= 100;
 
     //create header and table
     cout << "**********************************************************" << endl;
-    cout << "Month " <<  " Balance: " << " Payment: " << " Interest: " << " Principal: " << endl;
+    cout << "\tAmortization Table" << endl;
+    cout << "**********************************************************" << endl;
+    cout << "Month\tBalance\t\tPayment\tRate\tInterest\tPrincipal\n";
 
 
     while (loanAmount > 0) {
@@ -199,7 +201,7 @@ void Loop() {
 
         //fill table
         //TODO line up with word
-        cout << "   " << currMonth << "   $" << loanAmount << "   $" << monthlyPayment << "   $" << monthlyInterest << "   $" << principal << endl;
+        cout << "  " << currMonth << "    $" << loanAmount << "   $" << monthlyPayment << "   $" << monthlyInterest << "   $" << principal << endl;
 
         //add 1 to month
         currMonth++;
