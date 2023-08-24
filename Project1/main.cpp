@@ -11,6 +11,9 @@ int interestRate;
 
 //background vars
 int monthlyInterestRate;
+int currBalance;
+int currMonth;
+int interestPaid;
 
 //respond var
 string response;
@@ -154,6 +157,8 @@ int main() {
     VerifyValues();
     VerifyPayments();
 
+    //loop
+
 
 
 
@@ -161,5 +166,3 @@ int main() {
 
 
 }
-
-
