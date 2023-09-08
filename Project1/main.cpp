@@ -1,7 +1,14 @@
 //TODO AUTHOR: Adam Biggs
 //TODO Project 1 - Stereo System Payments
+/** References
+ * https://en.cppreference.com/w/cpp/io/manip/setw
+ * https://auburn.instructure.com/courses/1517529/external_tools/9744
+ * https://stackoverflow.com/questions/5131647/why-would-we-call-cin-clear-and-cin-ignore-after-reading-input
+ *
+ */
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 #include <limits>
 using namespace std;
 
@@ -56,9 +63,11 @@ void LoanAmount(){
     //check if loanAmount is negative
     if (cin.fail() || loanAmount <= 0){
         //error
+        cout << "Error: Invalid input. Please enter a positive number." << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        LoanAmount();
+
+        return;
     }
 }
 
@@ -73,9 +82,11 @@ void MonthlyPayment(){
     //check if monthly payment is negative
     if (cin.fail() || monthlyPayment <= 0){
         //error
+        cout << "Error: Invalid input. Please enter a positive number." << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        MonthlyPayment();
+
+        return;
     }
 }
 
@@ -90,9 +101,11 @@ void InterestRate(){
     //check if interest rate is negative
     if (cin.fail() || interestRate < 0){
         //error
+        cout << "Error: Invalid input. Please enter a non-negative number." << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        InterestRate();
+
+        return;
     }
 
     monthlyInterestRate = interestRate / 12;
@@ -158,6 +171,7 @@ void VerifyValues(){
 //TODO Verify That Payments are > than interest amount
 void VerifyPayments(){
     float monthlyInterest = loanAmount * (interestRate / 12 / 100);
+    //check
     if (monthlyPayment <= monthlyInterest) {
         cout << "Warning: Monthly payment may not cover monthly interest." << endl;
     }
@@ -175,8 +189,16 @@ void Loop() {
     cout << "**********************************************************" << endl;
     cout << "\tAmortization Table" << endl;
     cout << "**********************************************************" << endl;
-    cout << "Month\tBalance\t\tPayment\tRate\tInterest\tPrincipal\n";
+    cout << "Month" << setw(10) << "Balance" << setw(10) << "Payment" << setw(10) << "Rate"
+         << setw(10) << "Interest" << setw(10) << "Principal" << endl;
 
+    //first blank row
+    cout << fixed << setprecision(2) << setw(5) << currMonth << setw(10) << "$" << loanAmount
+         << setw(10) << "N/A" << setw(10) << "N/A" << setw(10) << "N/A" << setw(10) << "N/A"
+         << endl;
+
+    //attempt 4 to fix double print bug
+    currMonth = 1;
 
     while (loanAmount > 0) {
 
@@ -205,13 +227,15 @@ void Loop() {
 
         //fill table
         //TODO line up with word
-        cout << "  " << currMonth << "    $" << loanAmount << "   $" << monthlyPayment << "   $" << monthlyInterest << "   $" << principal << endl;
+        cout << setw(5) << currMonth << setw(10) << "$" << fixed << setprecision(2) << loanAmount
+             << setw(10) << "$" << monthlyPayment << setw(10) << fixed << setprecision(2)
+             << monthlyInterest << setw(10) << "$" << principal << endl;
 
         //add 1 to month
         currMonth++;
     }
 
     cout << "**********************************************************" << endl;
-    cout << "It takes " << currMonth << " months to pay off the loan." << endl;
+    cout << "It takes " << currMonth - 1 << " months to pay off the loan." << endl;
     cout << "Total interest paid is: $" << interestPaid << endl;
 }
