@@ -2,6 +2,7 @@
 //TODO Project 1 - Stereo System Payments
 #include <iostream>
 #include <string.h>
+#include <limits>
 using namespace std;
 
 //vars
@@ -53,10 +54,11 @@ void LoanAmount(){
     cin >> loanAmount;
 
     //check if loanAmount is negative
-    if (loanAmount <= 0){
+    if (cin.fail() || loanAmount <= 0){
         //error
-        cout << "Error: Please enter a number greater than 0" << endl;
-        cin >> loanAmount;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        LoanAmount();
     }
 }
 
@@ -69,10 +71,11 @@ void MonthlyPayment(){
     cin >> monthlyPayment;
 
     //check if monthly payment is negative
-    if (monthlyPayment <= 0){
+    if (cin.fail() || monthlyPayment <= 0){
         //error
-        cout << "Error: Please enter a number greater than 0" << endl;
-        cin >> monthlyPayment;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        MonthlyPayment();
     }
 }
 
@@ -85,10 +88,11 @@ void InterestRate(){
     cin >> interestRate;
 
     //check if interest rate is negative
-    if (interestRate < 0){
+    if (cin.fail() || interestRate < 0){
         //error
-        cout << "Error: Please enter a positive number" << endl;
-        cin >> interestRate;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        InterestRate();
     }
 
     monthlyInterestRate = interestRate / 12;
@@ -153,9 +157,9 @@ void VerifyValues(){
 //TODO---------------------------------------------------------------
 //TODO Verify That Payments are > than interest amount
 void VerifyPayments(){
-    if (monthlyPayment <= (monthlyInterestRate / 100) * loanAmount){
-        //error - redo values
-        ChangeValues();
+    float monthlyInterest = loanAmount * (interestRate / 12 / 100);
+    if (monthlyPayment <= monthlyInterest) {
+        cout << "Warning: Monthly payment may not cover monthly interest." << endl;
     }
 }
 
