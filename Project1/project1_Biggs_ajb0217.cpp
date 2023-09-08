@@ -5,6 +5,10 @@
  * https://auburn.instructure.com/courses/1517529/external_tools/9744
  * https://stackoverflow.com/questions/5131647/why-would-we-call-cin-clear-and-cin-ignore-after-reading-input
  *
+ * TO COMPILE USE
+ * g++ -std=c++0x main.cpp
+ * TO RUN USE
+ * ./a.out
  */
 #include <iostream>
 #include <string.h>
@@ -41,8 +45,9 @@ int main() {
 
     //get values
     LoanAmount();
-    MonthlyPayment();
     InterestRate();
+    MonthlyPayment();
+
 
     //verify them
     VerifyValues();
@@ -63,7 +68,7 @@ void LoanAmount(){
     //check if loanAmount is negative
     if (cin.fail() || loanAmount <= 0){
         //error
-        cout << "Error: Invalid input. Please enter a positive number." << endl;
+        cout << "Error: Invalid loan" << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -82,7 +87,7 @@ void MonthlyPayment(){
     //check if monthly payment is negative
     if (cin.fail() || monthlyPayment <= 0){
         //error
-        cout << "Error: Invalid input. Please enter a positive number." << endl;
+        cout << "Error: Invalid payment" << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -101,7 +106,7 @@ void InterestRate(){
     //check if interest rate is negative
     if (cin.fail() || interestRate < 0){
         //error
-        cout << "Error: Invalid input. Please enter a non-negative number." << endl;
+        cout << "Error: Invalid interest rate" << endl;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -190,11 +195,11 @@ void Loop() {
     cout << "\tAmortization Table" << endl;
     cout << "**********************************************************" << endl;
     cout << "Month" << setw(10) << "Balance" << setw(10) << "Payment" << setw(10) << "Rate"
-         << setw(10) << "Interest" << setw(10) << "Principal" << endl;
+         << setw(12) << "Interest" << setw(11) << "Principal" << endl;
 
     //first blank row
-    cout << fixed << setprecision(2) << setw(5) << currMonth << setw(10) << "$" << loanAmount
-         << setw(10) << "N/A" << setw(10) << "N/A" << setw(10) << "N/A" << setw(10) << "N/A"
+    cout << fixed << setprecision(2) << setw(5) << currMonth << setw(4) << "$" << loanAmount
+         << setw(5) << "N/A" << setw(13) << "N/A" << setw(8) << "N/A" << setw(10) << "N/A"
          << endl;
 
     //attempt 4 to fix double print bug
@@ -204,7 +209,7 @@ void Loop() {
 
         //check
         while (monthlyPayment <= loanAmount * monthlyInterestRate) {
-            cout << "Error: Monthly payment must be greater than monthly interest." << endl;
+            cout << "Error: Insufficient payment" << endl;
             ChangeValues();
             VerifyPayments();
         }
@@ -227,9 +232,9 @@ void Loop() {
 
         //fill table
         //TODO line up with word
-        cout << setw(5) << currMonth << setw(10) << "$" << loanAmount << setw(10) << "$"
-             << monthlyPayment << setw(10) << monthlyInterestRate * 100 << setw(10) << "$"
-             << monthlyInterest << setw(10) << "$" << principal << endl;
+        cout << setw(5) << currMonth << setw(4) << "$" << loanAmount << setw(4) << "$"
+             << monthlyPayment << setw(11) << monthlyInterestRate * 100 << setw(5) << "$"
+             << monthlyInterest << setw(5) << "$" << principal << endl;
 
         //add 1 to month
         currMonth++;
