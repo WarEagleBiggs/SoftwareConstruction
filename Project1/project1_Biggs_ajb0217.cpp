@@ -1,11 +1,12 @@
 //TODO AUTHOR: Adam Biggs
+//TODO ID: ajb0217
 //TODO Project 1 - Stereo System Payments
 /** References
  * https://en.cppreference.com/w/cpp/io/manip/setw
  * https://auburn.instructure.com/courses/1517529/external_tools/9744
  * https://stackoverflow.com/questions/5131647/why-would-we-call-cin-clear-and-cin-ignore-after-reading-input
  *
- * TO COMPILE USE
+ * TODO - TO COMPILE USE (due to version)
  * g++ -std=c++0x main.cpp
  * TO RUN USE
  * ./a.out
