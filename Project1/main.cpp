@@ -228,7 +228,7 @@ void Loop() {
         //fill table
         //TODO line up with word
         cout << setw(5) << currMonth << setw(10) << "$" << loanAmount << setw(10) << "$"
-             << monthlyPayment << setw(10) << monthlyInterestRate << setw(10) << "$"
+             << monthlyPayment << setw(10) << monthlyInterestRate * 100 << setw(10) << "$"
              << monthlyInterest << setw(10) << "$" << principal << endl;
 
         //add 1 to month
