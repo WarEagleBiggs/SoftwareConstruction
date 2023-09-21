@@ -1,3 +1,0 @@
-C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug/CMakeFiles/SoftwareConstruction.dir
-C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/jeffb/Documents/GitHub/SoftwareConstruction/Project1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
