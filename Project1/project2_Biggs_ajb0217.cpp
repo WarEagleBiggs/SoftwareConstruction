@@ -6,6 +6,7 @@
  * https://www.w3schools.com/cpp/cpp_pointers.asp
  * https://stackoverflow.com/questions/1571340/what-is-the-assert-function
  * https://en.cppreference.com/w/cpp/numeric/random/RAND_MAX
+ * https://www.geeksforgeeks.org/understanding-nullptr-c/
  *
  * TODO - TO COMPILE USE (due to version)
  * g++ -std=c++0x main.cpp
@@ -260,12 +261,14 @@ int main() {
     //rand
     srand(time(nullptr));
 
+    //calls to functions
     test_at_least_two_alive();
     test_Aaron_shoots1();
     test_Bob_shoots();
     test_Charlie_shoots();
     test_Aaron_shoots2();
 
+    //strat 1-------------------------------------------------
     int Aaron_wins1 = 0, Bob_wins = 0, Charlie_wins = 0;
     for (int i = 0; i < TOTAL_RUNS; ++i) {
         bool A_alive = true, B_alive = true, C_alive = true;
@@ -289,13 +292,58 @@ int main() {
         }
     }
 
-    //output
-    cout << "Simulation results after " << TOTAL_RUNS << " duels:\n";
-    cout << "Aaron wins with strategy 1: " << Aaron_wins1 << " (" << setprecision(2)
-         << (double) Aaron_wins1 / TOTAL_RUNS * 100 << "%)\n";
-    cout << "Bob wins: " << Bob_wins << " (" << setprecision(2) << (double) Bob_wins / TOTAL_RUNS * 100 << "%)\n";
-    cout << "Charlie wins: " << Charlie_wins << " (" << setprecision(2) << (double) Charlie_wins / TOTAL_RUNS * 100
-         << "%)\n";
+    //output results
+    cout << "Ready to test strategy 1 (run 10000 times):\n";
+    pause();
+    cout << "Aaron won " << Aaron_wins1 << "/10000 duels or " << setprecision(2)
+         << (double)Aaron_wins1 / TOTAL_RUNS * 100 << "%\n";
+    cout << "Bob won " << Bob_wins << "/10000 duels or " << setprecision(2)
+         << (double)Bob_wins / TOTAL_RUNS * 100 << "%\n";
+    cout << "Charlie won " << Charlie_wins << "/10000 duels or " << setprecision(2)
+         << (double)Charlie_wins / TOTAL_RUNS * 100 << "%\n";
+
+    //strat 2--------------------------------------------------
+    int Aaron_wins2 = 0;
+    Bob_wins = 0;
+    Charlie_wins = 0;
+    for (int i = 0; i < TOTAL_RUNS; ++i) {
+        bool A_alive = true, B_alive = true, C_alive = true;
+        while (at_least_two_alive(A_alive, B_alive, C_alive)) {
+            if (A_alive) {
+                Aaron_shoots2(B_alive, C_alive);
+            }
+            if (B_alive) {
+                Bob_shoots(A_alive, C_alive);
+            }
+            if (C_alive) {
+                Charlie_shoots(A_alive, B_alive);
+            }
+        }
+        if (A_alive) {
+            ++Aaron_wins2;
+        } else if (B_alive) {
+            ++Bob_wins;
+        } else {
+            ++Charlie_wins;
+        }
+    }
+
+    cout << "Ready to test strategy 2 (run 10000 times):\n";
+    pause();
+    cout << "Aaron won " << Aaron_wins2 << "/10000 duels or " << setprecision(2)
+         << (double)Aaron_wins2 / TOTAL_RUNS * 100 << "%\n";
+    cout << "Bob won " << Bob_wins << "/10000 duels or " << setprecision(2)
+         << (double)Bob_wins / TOTAL_RUNS * 100 << "%\n";
+    cout << "Charlie won " << Charlie_wins << "/10000 duels or " << setprecision(2)
+         << (double)Charlie_wins / TOTAL_RUNS * 100 << "%\n";
+
+
+    //final determination
+    if (Aaron_wins2 > Aaron_wins1) {
+        cout << "Strategy 2 is better than strategy 1.\n";
+    } else {
+        cout << "Strategy 1 is better than strategy 2.\n";
+    }
 
     //blank return
     return 0;
