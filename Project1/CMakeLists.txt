@@ -5,4 +5,13 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(SoftwareConstruction main.cpp
         project2_Biggs_ajb0217.cpp
-        project2_Biggs_ajb0217.h)
+        project2_Biggs_ajb0217.h
+        ../../../../../../project3_Biggs_ajb0217.cpp
+        project3_Biggs_ajb0217.cpp
+        project3_Biggs_ajb0217.h
+        project3_Biggs_ajb0217.h
+        project3_Biggs_ajb0217.cpp
+        project3_Biggs_ajb0217.cpp
+        project3_Biggs_ajb0217.cpp
+        project3_Biggs_ajb0217.h
+        project3_Biggs_ajb0217.h)
