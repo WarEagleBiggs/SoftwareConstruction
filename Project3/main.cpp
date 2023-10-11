@@ -20,18 +20,23 @@
 #include <limits>
 using namespace std;
 
-// Vars
+// Maximum size constant
 const int MAX_SIZE = 100;
-int inputArray1[MAX_SIZE], inputArray2[MAX_SIZE], outputArray[2 * MAX_SIZE];
-int inputArray1_size, inputArray2_size, outputArray_size;
-string filename1, filename2, outputFilename;
+
+//TODO STRUCTURE FOR FILE DATA
+struct FileData {
+    int data[MAX_SIZE];
+    int size;
+    string filename;
+};
+
+FileData input1, input2, outputData;
 
 // Function Ref for calls
-void ReadFirstFile();
-void ReadSecondFile();
+void ReadFile(FileData &fileData);
 void SortAndMerge();
-void WriteToFile();
 void DisplaySortedNumbers();
+void WriteToFile();
 
 //TODO*****************************************************************************************************
 //TODO main
@@ -40,8 +45,8 @@ int main() {
     cout << "*** Welcome to Adam's sorting program ***" << endl;
 
     // Get values and process
-    ReadFirstFile();
-    ReadSecondFile();
+    ReadFile(input1);
+    ReadFile(input2);
     SortAndMerge();
     DisplaySortedNumbers();
     WriteToFile();
@@ -52,75 +57,52 @@ int main() {
 }
 
 //TODO*****************************************************************************************************
-//TODO Read First file
-void ReadFirstFile(){
+//TODO Read file
+void ReadFile(FileData &fileData){
     cout << "************************************" << endl;
-    cout << "Enter the first input file name:" << endl;
-    cin >> filename1;
-    ifstream inStream1(filename1.c_str());
-    if (inStream1.fail()) {
-        //error
-        cout << "Error: Failed to open " << filename1 << endl;
+    cout << "Enter the input file name:" << endl;
+    cin >> fileData.filename;
+    ifstream inStream(fileData.filename.c_str());
+    if (inStream.fail()) {
+        cout << "Error: Failed to open " << fileData.filename << endl;
         return;
     }
     int index = 0;
-    cout << "The list of numbers in file " << filename1 << " is:" << endl;
-    while (inStream1 >> inputArray1[index]) {
-        cout << inputArray1[index] << endl;
+    cout << "The list of numbers in file " << fileData.filename << " is:" << endl;
+    while (inStream >> fileData.data[index]) {
+        cout << fileData.data[index] << endl;
         index++;
     }
-    inputArray1_size = index;
-    inStream1.close();
-}
-
-//TODO---------------------------------------------------------------
-//TODO Read second file
-void ReadSecondFile(){
-    cout << "************************************" << endl;
-    cout << "Enter the second input file name:" << endl;
-    cin >> filename2;
-    ifstream inStream2(filename2.c_str());
-    if (inStream2.fail()) {
-        //error
-        cout << "Error: Failed to open " << filename2 << endl;
-        return;
-    }
-    int index = 0;
-    cout << "The list of numbers in file " << filename2 << " is:" << endl;
-    while (inStream2 >> inputArray2[index]) {
-        cout << inputArray2[index] << endl;
-        index++;
-    }
-    inputArray2_size = index;
-    inStream2.close();
+    fileData.size = index;
+    inStream.close();
 }
 
 //TODO---------------------------------------------------------------
 //TODO Sort and merge
 void SortAndMerge(){
     int i = 0, j = 0, k = 0;
-    while (i < inputArray1_size && j < inputArray2_size) {
-        if (inputArray1[i] < inputArray2[j]) {
-            outputArray[k++] = inputArray1[i++];
+    while (i < input1.size && j < input2.size) {
+        if (input1.data[i] < input2.data[j]) {
+            outputData.data[k++] = input1.data[i++];
         } else {
-            outputArray[k++] = inputArray2[j++];
+            outputData.data[k++] = input2.data[j++];
         }
     }
-    while (i < inputArray1_size) {
-        outputArray[k++] = inputArray1[i++];
+    while (i < input1.size) {
+        outputData.data[k++] = input1.data[i++];
     }
-    while (j < inputArray2_size) {
-        outputArray[k++] = inputArray2[j++];
+    while (j < input2.size) {
+        outputData.data[k++] = input2.data[j++];
     }
-    outputArray_size = k;
+    outputData.size = k;
 }
 
 //TODO---------------------------------------------------------------
 //TODO Display sorted numbers
 void DisplaySortedNumbers(){
     cout << "The sorted list of numbers is: ";
-    for (int m = 0; m < outputArray_size; m++) {
-        cout << outputArray[m] << " ";
+    for (int m = 0; m < outputData.size; m++) {
+        cout << outputData.data[m] << " ";
     }
     cout << endl;
 }
@@ -130,18 +112,16 @@ void DisplaySortedNumbers(){
 void WriteToFile(){
     cout << "************************************" << endl;
     cout << "Enter the output file name:" << endl;
-    cin >> outputFilename;
-    ofstream outStream(outputFilename.c_str());
+    cin >> outputData.filename;
+    ofstream outStream(outputData.filename.c_str());
     if (outStream.fail()) {
-        //error
-        cout << "Error: Failed to open " << outputFilename << " for writing" << endl;
+        cout << "Error: Failed to open " << outputData.filename << " for writing" << endl;
         return;
     }
-    //6th attempt please work.
-    for (int i = 0; i < outputArray_size; i++) {
-        outStream << outputArray[i] << endl;
+    for (int i = 0; i < outputData.size; i++) {
+        outStream << outputData.data[i] << endl;
     }
     outStream.close();
 
-    cout << "*** Please check the new file - " << outputFilename << " ***" << endl;
+    cout << "*** Please check the new file - " << outputData.filename << " ***" << endl;
 }
