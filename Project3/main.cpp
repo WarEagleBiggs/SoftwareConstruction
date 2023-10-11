@@ -7,6 +7,8 @@
  * https://auburn.instructure.com/courses/1517529/external_tools/9744
  * https://en.cppreference.com/w/cpp/io/basic_ifstream
  * https://en.cppreference.com/w/cpp/io/basic_ofstream
+ * https://stackoverflow.com/questions/8412347/combining-c-header-files
+ * https://www.codesdope.com/blog/article/program-to-merge-contents-of-two-files-in-third/
  *
  * TODO - TO COMPILE USE (due to version)
  * g++ -std=c++0x project3_Biggs_ajb0217.cpp
@@ -24,12 +26,14 @@ using namespace std;
 const int MAX_SIZE = 100;
 
 //TODO STRUCTURE FOR FILE DATA
+//to keep small
 struct FileData {
     int data[MAX_SIZE];
     int size;
     string filename;
 };
 
+//only 3 global vars
 FileData input1, input2, outputData;
 
 // Function Ref for calls
