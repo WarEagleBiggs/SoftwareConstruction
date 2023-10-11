@@ -1,5 +1,6 @@
 //TODO AUTHOR: Adam Biggs
 //TODO ID: ajb0217
+//TODO FILENAME: project3_Biggs_ajb0217.cpp
 //TODO Project 3 - File Merging Program
 
 /** References:
@@ -12,6 +13,7 @@
  * TO RUN USE
  * ./a.out
  */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -34,6 +36,7 @@ void DisplaySortedNumbers();
 //TODO*****************************************************************************************************
 //TODO main
 int main() {
+    //basic format
     cout << "*** Welcome to Adam's sorting program ***" << endl;
 
     // Get values and process
@@ -43,18 +46,20 @@ int main() {
     DisplaySortedNumbers();
     WriteToFile();
 
+    //end
     cout << "*** Goodbye. ***" << endl;
     return 0;
 }
 
 //TODO*****************************************************************************************************
-//TODO Read First File
+//TODO Read First file
 void ReadFirstFile(){
     cout << "************************************" << endl;
     cout << "Enter the first input file name:" << endl;
     cin >> filename1;
     ifstream inStream1(filename1.c_str());
     if (inStream1.fail()) {
+        //error
         cout << "Error: Failed to open " << filename1 << endl;
         return;
     }
@@ -69,13 +74,14 @@ void ReadFirstFile(){
 }
 
 //TODO---------------------------------------------------------------
-//TODO Read Second File
+//TODO Read second file
 void ReadSecondFile(){
     cout << "************************************" << endl;
     cout << "Enter the second input file name:" << endl;
     cin >> filename2;
     ifstream inStream2(filename2.c_str());
     if (inStream2.fail()) {
+        //error
         cout << "Error: Failed to open " << filename2 << endl;
         return;
     }
@@ -90,7 +96,7 @@ void ReadSecondFile(){
 }
 
 //TODO---------------------------------------------------------------
-//TODO Sort And Merge
+//TODO Sort and merge
 void SortAndMerge(){
     int i = 0, j = 0, k = 0;
     while (i < inputArray1_size && j < inputArray2_size) {
@@ -110,7 +116,7 @@ void SortAndMerge(){
 }
 
 //TODO---------------------------------------------------------------
-//TODO Display Sorted Numbers
+//TODO Display sorted numbers
 void DisplaySortedNumbers(){
     cout << "The sorted list of numbers is: ";
     for (int m = 0; m < outputArray_size; m++) {
@@ -120,19 +126,22 @@ void DisplaySortedNumbers(){
 }
 
 //TODO---------------------------------------------------------------
-//TODO Write to File
+//TODO Write to file
 void WriteToFile(){
     cout << "************************************" << endl;
     cout << "Enter the output file name:" << endl;
     cin >> outputFilename;
     ofstream outStream(outputFilename.c_str());
     if (outStream.fail()) {
+        //error
         cout << "Error: Failed to open " << outputFilename << " for writing" << endl;
         return;
     }
+    //6th attempt please work.
     for (int i = 0; i < outputArray_size; i++) {
         outStream << outputArray[i] << endl;
     }
     outStream.close();
+
     cout << "*** Please check the new file - " << outputFilename << " ***" << endl;
 }
