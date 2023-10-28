@@ -15,6 +15,7 @@
 #include <string>
 #include <cctype>
 #include <limits>
+//basic
 using namespace std;
 
 //TODO CONST
@@ -102,6 +103,7 @@ void addTrivia(TriviaNode*& head, const string& q, const string& a, int p) {
 //TODO---------------------------------------------------------------
 //TODO ask questions
 int askQuestion(TriviaNode* head, int numberOfQuestions) {
+    //please work
     TriviaNode* current = head;
     int correctCount = 0;
     string userAnswer;
@@ -127,6 +129,7 @@ int askQuestion(TriviaNode* head, int numberOfQuestions) {
 #ifdef UNIT_TESTING
 //TODO*****************************************************************************************************
 //TODO testing driver
+//tests cases. Hopefully works
 void testDriver(TriviaNode * head) {
     cout << "Running the test driver...\n";
 
@@ -190,6 +193,7 @@ void productionVersion(TriviaNode* head) {
     cout << "Do you want to add a new trivia? (Y/N) ";
     cin >> choice;
 
+    //wipe
     cin.ignore();
 
     while (toupper(choice) == 'Y') {
